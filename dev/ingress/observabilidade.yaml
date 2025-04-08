@@ -1,0 +1,34 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: observability
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/rewrite-target: /
+    nginx.ingress.kubernetes.io/whitelist-source-range: '170.82.62.8/32'
+  namespace: obs  
+spec:
+  ingressClassName: nginx
+  tls:
+   - hosts:
+       - obs.konzelmann.com.br
+     secretName: letsencrypt-prod
+  rules:
+  - host: obs.konzelmann.com.br
+    http:
+      paths: 
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: prometheus-grafana
+              port:
+                number: 80
+        - path: /prometheus
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: prometheus-kube-prometheus-prometheus
+              port:
+                number: 9090
+

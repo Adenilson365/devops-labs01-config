@@ -1,0 +1,42 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: aplicacao
+  annotations:
+    cert-manager.io/cluster-issuer: letsencrypt-prod
+    nginx.ingress.kubernetes.io/service-upstream: "true"
+   # networking.gke.io/managed-certificates: auto-cert2
+  namespace: api
+    
+spec:
+  ingressClassName: nginx
+  tls:
+   - hosts:
+       - api.konzelmann.com.br
+     secretName: letsencrypt-prod
+  rules:
+  - host: api.konzelmann.com.br
+    http:
+      paths: 
+        - path: /
+          pathType: Prefix
+          backend:
+            service:
+              name: frontend
+              port:
+                number: 80
+        - path: /products
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: catalogo
+              port:
+                number: 3333
+        - path: /get-image
+          pathType: ImplementationSpecific
+          backend:
+            service:
+              name: api-images
+              port:
+                number: 5001
+
