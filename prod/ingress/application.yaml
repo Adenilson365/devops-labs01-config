@@ -12,10 +12,10 @@ spec:
   ingressClassName: nginx
   tls:
    - hosts:
-       - dev.konzelmann.com.br
+       - prod.konzelmann.com.br
      secretName: letsencrypt-prod
   rules:
-  - host: dev.konzelmann.com.br
+  - host: prod.konzelmann.com.br
     http:
       paths: 
         - path: /
