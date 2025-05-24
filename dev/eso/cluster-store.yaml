@@ -1,0 +1,15 @@
+apiVersion: external-secrets.io/v1
+kind: ClusterSecretStore
+metadata:
+  name: api-secret-store
+spec:
+  provider:
+    gcpsm:
+      projectID: "argo-dev-455710"
+      auth:
+        workloadIdentity:
+          clusterLocation: "us-central1"
+          clusterName: "argo-dev-0"
+          serviceAccountRef:
+            name: external-secrets
+            namespace: external-secrets
