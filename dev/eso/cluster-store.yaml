@@ -5,7 +5,7 @@ metadata:
 spec:
   provider:
     gcpsm:
-      projectID: "argo-dev-455710"
+      projectID: "develop-464014"
       auth:
         workloadIdentity:
           clusterLocation: "us-central1"
