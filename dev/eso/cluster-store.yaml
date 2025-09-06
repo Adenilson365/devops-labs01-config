@@ -5,11 +5,11 @@ metadata:
 spec:
   provider:
     gcpsm:
-      projectID: "develop-464014"
+      projectID: "argo-prod-471308"
       auth:
         workloadIdentity:
-          clusterLocation: "us-central1"
-          clusterName: "argo-dev-0"
+          clusterLocation: "us-east1"
+          clusterName: "argo-prd-0"
           serviceAccountRef:
             name: external-secrets
             namespace: external-secrets
