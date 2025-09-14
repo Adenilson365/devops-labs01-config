@@ -13,4 +13,3 @@ spec:
           serviceAccountRef:
             name: external-secrets
             namespace: external-secrets
-.
