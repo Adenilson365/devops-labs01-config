@@ -2,6 +2,8 @@
 
 - [Documentação](https://external-secrets.io)
 
+![Diagrama Eso](./assets/eso-diagram.png)
+
 **ESO é um CRD que te permite gerenciar seus secrets no kubernetes apartir de um cofre de senhas como: Hashicorp Vault, AWS Secret Manager, GCP SecretManager entre outros. Com isso você resolve 2 problemas críticos: Os secrets não ficam armazenados localmente na máquina do admin, e os secrets não ficam versionados no repositório Git (oque por si só é impensável).**
 
 ### Nesse projeto utilizei o ESO com o GCP Secret Manager:

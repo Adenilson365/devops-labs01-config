@@ -5,6 +5,8 @@
 - Armazena os manifestos compartilhados a serem aplicados no Kubernetes usando ArgoCD.
 - Exemplo: ingress-controller, default limit range, namespace template.
 
+- [Veja a implementação External Secrets Operator (ESO)](./docs/eso.md)
+
 ## Repositórios
 
 ### Código
